@@ -28,9 +28,10 @@ class Snake:
             self.segments[seg].goto(new_x,new_y)
         self.segments[0].forward(MOVE_DISTANCE)
 
-    
+    # when the head move up the rest of the segments will follow along due to continuous upadate of move method
+
     def up(self) : 
-        self.segments[0].setheading(90) # when the head move up the rest of the segments will follow along due to continuous upadate of move method
+        self.segments[0].setheading(90) 
     
     def down(self) :
         self.segments[0].setheading(270)
