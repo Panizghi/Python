@@ -31,14 +31,18 @@ class Snake:
     # when the head move up the rest of the segments will follow along due to continuous upadate of move method
 
     def up(self) : 
-        self.segments[0].setheading(90) 
+        if self.segments[0].head() != 270 : #snake dont move back onn its self 
+            self.segments[0].setheading(90) 
     
     def down(self) :
-        self.segments[0].setheading(270)
+        if self.segments[0].head() != 90 :
+            self.segments[0].setheading(270)
 
     def left(self) :
-        self.segments[0].setheading(180)
+        if self.segments[0].head() != 0 :
+            self.segments[0].setheading(180)
     
     def right(self) :
-        self.segments[0].setheading(0)
+        if self.segments[0].head() != 180 :
+            self.segments[0].setheading(0)
 
