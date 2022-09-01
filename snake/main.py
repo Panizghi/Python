@@ -1,5 +1,6 @@
 
 from turtle import Screen
+from food import Food
 from snake import Snake
 import time
 #setting up the screen
@@ -12,6 +13,7 @@ screen.tracer(0)
 #body basics
 
 snake =Snake()
+food = Food()
 screen.listen() #collect key events
 #detect spcf keys
 screen.onkey(snake.up , "Up") 
@@ -24,9 +26,11 @@ end_game = False
 
 while not end_game :
     screen.update()   # instead of moving as segments snake move as one block 
-    time.sleep(0.1)
+    time.sleep(0.09) 
     snake.move()
-    
+    #use distance method to find collsion of the food with snake
+    if snake.segments[0].distance(food) < 15: # food is 10 by 10 considering buffer 15 px should be reasonable
+       food.refresh()
    
         
 
