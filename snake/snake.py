@@ -11,12 +11,15 @@ class Snake:
         
 
     def create(self):
-        for i in START_POS :
-            new_seg = Turtle("square")
-            new_seg.color("white")
-            new_seg.penup()  # no line trace on screen 
-            new_seg.goto(i)
-            self.segments.append(new_seg)
+        for pos in START_POS :
+            self.add_seg(pos)
+    
+    def add_seg(self,pos) :
+        new_seg = Turtle("square")
+        new_seg.color("white")
+        new_seg.penup()  # no line trace on screen 
+        new_seg.goto(pos)
+        self.segments.append(new_seg)
 
     def move(self):
         for seg in range(len(self.segments)-1,0,-1): # start from last segment until the first one with step of one
@@ -27,6 +30,12 @@ class Snake:
             new_y= self.segments[seg-1].ycor()
             self.segments[seg].goto(new_x,new_y)
         self.segments[0].forward(MOVE_DISTANCE)
+
+    def refresh(self):
+        self.add_seg(self.segments[-1].position())
+    #use -1 to apped to last segment 
+    #position() is turtle method 
+
 
     # when the head move up the rest of the segments will follow along due to continuous upadate of move method
 
