@@ -35,7 +35,10 @@ while not end_game :
        score.refresh()
        food.refresh()
    
-        
+    if snake.segments[0].xcor() <-280 or snake.segments[0].xcor() >280 or snake.segments[0].ycor() <-280 or snake.segments[0].ycor() >280 :
+        end_game = True
+        score.gameover()
+
 
 
 
